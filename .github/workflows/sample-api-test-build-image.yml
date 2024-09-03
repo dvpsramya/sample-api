@@ -31,12 +31,12 @@ jobs:
         context: .
         file: Dockerfile
         push: true
-        tags: sample-api:latest
+        tags: ghcr.io/${{ github.repository }}/sample-api:latest
         platforms: linux/amd64,linux/arm64
         
     - name: Run test
       run: |
-        docker run --rm sample-api:latest bash -c ./run-unit-tests.sh
+        docker run --rm ghcr.io/${{ github.repository }}/sample-api:latest bash -c ./run-unit-tests.sh
         
     - name: Log out from GitHub Container Registry
       run: docker logout ghcr.io
