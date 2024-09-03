@@ -29,3 +29,6 @@ Resolution: Modify pyproject.toml with valid psycopg2 library (psycopg2-binary)
 
 - issue: build docker images 
 - Resolution: Created Dockerfile with required steps
+
+- issue: start_local.sh run issue
+- Resolution: added .dockerignore
