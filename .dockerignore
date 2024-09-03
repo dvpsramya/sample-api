@@ -1,0 +1,45 @@
+# Ignore the Python bytecode files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories
+.env
+venv
+*.env
+
+# Ignore Docker-related files
+Dockerfile
+docker-compose.yml
+
+# Ignore local and cache files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Ignore test and coverage directories
+coverage/
+
+# Ignore version control directories
+.git/
+.gitignore
+.gitattributes
+
+# Ignore IDE and editor directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore documentation
+*.md
+
+# Ignore CI/CD configuration files
+*.yml
+*.yaml
+
+# Ignore Poetry cache
+.poetry/
+*.lock
