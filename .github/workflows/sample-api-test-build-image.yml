@@ -6,7 +6,12 @@ on:
       - main
       - feature/qa-03
   pull_request:
-
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
 jobs:
   test:
     runs-on: ubuntu-latest
