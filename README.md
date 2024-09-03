@@ -52,3 +52,12 @@ This is a simple API. It is not production ready.
 The API is based on the table schema defined in [V1.0.0__init.sql](db/migrations/V1.0.0__init.sql) file. Note the foreign key constraint if you want to try the endpoints out.
 
 The [http://localhost:3003/docs](http://localhost:3003/docs) page lists the available endpoints.
+
+
+# Sample API Dockerization
+
+## Building the Docker Image
+To build the Docker image, run the following command:
+```bash
+docker build -t sample-api .
+
