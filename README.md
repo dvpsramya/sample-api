@@ -67,6 +67,10 @@ docker build -t sample-api .
 
 This repository uses GitHub Actions for CI/CD to run unit tests, build Docker images, and publish to GitHub Container Registry.
 
+## Instruction on how to trigger and run the workflow
+
+The workflow triggers automatically on any push or pull request to the main branch and feature/qa-02 branch. You can also manually trigger it by creating a new commit or opening a pull request.
+
 ## How to Pull and Run the Image
 
 ```bash
