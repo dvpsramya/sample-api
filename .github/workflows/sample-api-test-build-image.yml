@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test
-        run: docker compose --profile test up -d
+        run: docker compose housing-unit-tests
         
   sample-api-image-push:
     needs: test
