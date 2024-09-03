@@ -60,6 +60,8 @@ The [http://localhost:3003/docs](http://localhost:3003/docs) page lists the avai
 To build the Docker image, run the following command:
 ```bash
 docker build -t sample-api .
+```
+
 
 # CI/CD Pipeline
 
