@@ -47,8 +47,7 @@ vagrant@vagrant:~/bcjobs/sample-api$ curl  http://0.0.0.0:3003/docs
       </script>
    </body>
 </html>
-
-    vagrant@vagrant:~/bcjobs/sample-api$
+vagrant@vagrant:~/bcjobs/sample-api$ docker run --rm -p 3003:3000 sample-api ./run-unit-tests.sh
 ============================================================
 Unit Testing execution
 <img width="869" alt="image" src="https://github.com/user-attachments/assets/706be9f4-98a1-4f89-bae7-f25993d190f0">
