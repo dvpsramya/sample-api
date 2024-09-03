@@ -6,26 +6,9 @@ Author: Ramya P
 Build Docker Image
 docker build -t sample-api .
 vagrant@vagrant:~/bcjobs/sample-api$ docker build -t sample-api .
-[+] Building 1.0s (12/12) FINISHED                                                                                                            docker:default
- => [internal] load build definition from Dockerfile                                                                                                    0.0s
- => => transferring dockerfile: 619B                                                                                                                    0.0s
- => [internal] load metadata for docker.io/library/alpine:3.20                                                                                          0.6s
- => [internal] load .dockerignore                                                                                                                       0.0s
- => => transferring context: 2B                                                                                                                         0.0s
- => [1/7] FROM docker.io/library/alpine:3.20@sha256:0a4eaa0eecf5f8c050e5bba433f58c052be7587ee8af3e8b3910ef9ab5fbe9f5                                    0.0s
- => [internal] load build context                                                                                                                       0.0s
- => => transferring context: 16.32kB                                                                                                                    0.0s
- => CACHED [2/7] RUN apk add --update --no-cache bash     python3 && ln -sf python3 /usr/bin/python                                                     0.0s
- => CACHED [3/7] RUN apk add --update --no-cache poetry                                                                                                 0.0s
- => CACHED [4/7] WORKDIR /usr/src/app                                                                                                                   0.0s
- => CACHED [5/7] COPY pyproject.toml pyproject.toml                                                                                                     0.0s
- => CACHED [6/7] RUN poetry install --no-root -vvv --sync                                                                                               0.0s
- => [7/7] COPY . .                                                                                                                                      0.1s
- => exporting to image                                                                                                                                  0.1s
- => => exporting layers                                                                                                                                 0.1s
- => => writing image sha256:4cfa4658eac7f7b980f6d4481b39dce716eb6658c954ac129aef2f9425215dc0                                                            0.0s
- => => naming to docker.io/library/sample-api   
 ================================================================
+<img width="941" alt="image" src="https://github.com/user-attachments/assets/418201df-aa24-4b44-8af5-29955fc7184a">
+
 vagrant@vagrant:~/bcjobs/sample-api$ docker images
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 sample-api   latest    4cfa4658eac7   25 seconds ago   205MB
