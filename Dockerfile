@@ -1,32 +1,22 @@
-FROM python:3.12-slim
-# Set working directory
-WORKDIR /application/
-# Prevent Python from writing bytecode and enable unbuffered mode
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libpq-dev \
-    curl \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-# Install Poetry
-RUN curl -sSL https://install.python-poetry.org | python3 -
-# Add Poetry to PATH
-ENV PATH="/root/.local/bin:$PATH"
-# Copy only the pyproject.toml and poetry.lock to optimize caching
-COPY pyproject.toml poetry.lock ./
-# Install Python dependencies using Poetry
-RUN poetry config virtualenvs.in-project true \
-    && poetry install --no-root --only main
-# Copy the source code
-COPY src/ .
-# Copy the start-local and test scripts
-COPY start-local.sh run-unit-tests.sh ./
-RUN chmod +x ./start-local.sh ./run-unit-tests.sh
-# Expose port 3000 for the FastAPI application
-EXPOSE 3000
-# Set the start-local and command to start the FastAPI application
-ENTRYPOINT ["/application/start-local.sh"]
+# Use the Alpine base image
+FROM alpine:3.20
 
+# Install required packages
+RUN apk add --update --no-cache bash \
+    python3 && ln -sf python3 /usr/bin/python
+RUN apk add --update --no-cache poetry
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+COPY pyproject.toml pyproject.toml 
+RUN poetry install --no-root -vvv --sync
+
+# Copy the rest of the application
+COPY . .
+
+# Expose the application port
+EXPOSE 3000
+
+# Set the entry point to run the FastAPI application
+ENTRYPOINT ["poetry", "run", "fastapi", "dev", "--host", "0.0.0.0", "--port", "3000", "src/sample_api/main.py"]
