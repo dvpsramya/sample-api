@@ -61,3 +61,15 @@ To build the Docker image, run the following command:
 ```bash
 docker build -t sample-api .
 
+# CI/CD Pipeline
+
+This repository uses GitHub Actions for CI/CD to run unit tests, build Docker images, and publish to GitHub Container Registry.
+
+## How to Pull and Run the Image
+
+```bash
+docker pull ghcr.io/<your-github-username>/sample-api:latest
+docker run -p 3000:3000 ghcr.io/<your-github-username>/sample-api:latest
+
+
+
