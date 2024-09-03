@@ -1,0 +1,42 @@
+name: Sample-api Image Test Build and Push
+
+on:
+  push:
+    branches:
+      - main
+      - feature/qa-02
+  pull_request:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+
+jobs:
+  sample-api-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU for multi-platform builds
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: amd64,arm64
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          push: false
+          tags: sample-api:latest
+          platforms: linux/amd64,linux/arm64
+
+     - name: Run tests
+        run: |
+          docker run --rm sample-api:latest bash -c ./run-unit-tests.sh
+
