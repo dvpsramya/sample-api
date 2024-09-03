@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feature/qa-02
+      - feature/qa-03
   pull_request:
 
 jobs:
